@@ -1,0 +1,116 @@
+instrument:
+  id: pcl5
+  name: "PCL-5"
+  version: "2024-05"
+  description: "PTSD Checklist for DSM-5"
+  citation: "Weathers et al. (2013)"
+  domains:
+    - PTSD Symptoms
+items:
+  - id: pcl5_1
+    field: q1
+    prompt: "Repeated, disturbing memories of the experience"
+  - id: pcl5_2
+    field: q2
+    prompt: "Repeated, disturbing dreams of the experience"
+  - id: pcl5_3
+    field: q3
+    prompt: "Sudden feelings or reliving the experience"
+  - id: pcl5_4
+    field: q4
+    prompt: "Upset when reminded of the experience"
+  - id: pcl5_5
+    field: q5
+    prompt: "Physical reactions when reminded (heart pounding, trouble breathing)"
+  - id: pcl5_6
+    field: q6
+    prompt: "Avoiding memories, thoughts, or feelings"
+  - id: pcl5_7
+    field: q7
+    prompt: "Avoiding external reminders"
+  - id: pcl5_8
+    field: q8
+    prompt: "Trouble remembering important parts of the experience"
+  - id: pcl5_9
+    field: q9
+    prompt: "Negative beliefs about oneself, others, or the world"
+  - id: pcl5_10
+    field: q10
+    prompt: "Blaming yourself or others"
+  - id: pcl5_11
+    field: q11
+    prompt: "Strong negative feelings such as fear, horror, anger, guilt, or shame"
+  - id: pcl5_12
+    field: q12
+    prompt: "Loss of interest in activities"
+  - id: pcl5_13
+    field: q13
+    prompt: "Feeling distant or cut off from people"
+  - id: pcl5_14
+    field: q14
+    prompt: "Trouble experiencing positive feelings"
+  - id: pcl5_15
+    field: q15
+    prompt: "Irritable behavior or angry outbursts"
+  - id: pcl5_16
+    field: q16
+    prompt: "Taking too many risks or being reckless"
+  - id: pcl5_17
+    field: q17
+    prompt: "Feeling jumpy or easily startled"
+  - id: pcl5_18
+    field: q18
+    prompt: "Difficulty concentrating"
+  - id: pcl5_19
+    field: q19
+    prompt: "Trouble falling or staying asleep"
+  - id: pcl5_20
+    field: q20
+    prompt: "Feeling overly alert, watchful, or on guard"
+scoring:
+  response_scale:
+    minimum: 0
+    maximum: 4
+    labels:
+      0: "Not at all"
+      1: "A little bit"
+      2: "Moderately"
+      3: "Quite a bit"
+      4: "Extremely"
+  total:
+    label: "Total Score"
+    method: sum
+    items:
+      - pcl5_1
+      - pcl5_2
+      - pcl5_3
+      - pcl5_4
+      - pcl5_5
+      - pcl5_6
+      - pcl5_7
+      - pcl5_8
+      - pcl5_9
+      - pcl5_10
+      - pcl5_11
+      - pcl5_12
+      - pcl5_13
+      - pcl5_14
+      - pcl5_15
+      - pcl5_16
+      - pcl5_17
+      - pcl5_18
+      - pcl5_19
+      - pcl5_20
+    minimum: 0
+    maximum: 80
+  interpretation:
+    severity_thresholds:
+      - label: "Minimal"
+        min: 0
+        max: 10
+      - label: "Subthreshold"
+        min: 11
+        max: 32
+      - label: "Probable PTSD"
+        min: 33
+        max: 80

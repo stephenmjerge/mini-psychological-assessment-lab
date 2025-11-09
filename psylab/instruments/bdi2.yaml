@@ -1,0 +1,122 @@
+instrument:
+  id: bdi2
+  name: "BDI-II"
+  version: "2024-05"
+  description: "Beck Depression Inventory-II"
+  citation: "Beck, Steer, & Brown (1996)"
+  domains:
+    - Depression
+items:
+  - id: bdi2_1
+    field: q1
+    prompt: "Sadness"
+  - id: bdi2_2
+    field: q2
+    prompt: "Pessimism"
+  - id: bdi2_3
+    field: q3
+    prompt: "Past failure"
+  - id: bdi2_4
+    field: q4
+    prompt: "Loss of pleasure"
+  - id: bdi2_5
+    field: q5
+    prompt: "Guilty feelings"
+  - id: bdi2_6
+    field: q6
+    prompt: "Punishment feelings"
+  - id: bdi2_7
+    field: q7
+    prompt: "Self-dislike"
+  - id: bdi2_8
+    field: q8
+    prompt: "Self-criticalness"
+  - id: bdi2_9
+    field: q9
+    prompt: "Suicidal thoughts or wishes"
+  - id: bdi2_10
+    field: q10
+    prompt: "Crying"
+  - id: bdi2_11
+    field: q11
+    prompt: "Agitation"
+  - id: bdi2_12
+    field: q12
+    prompt: "Loss of interest"
+  - id: bdi2_13
+    field: q13
+    prompt: "Indecisiveness"
+  - id: bdi2_14
+    field: q14
+    prompt: "Worthlessness"
+  - id: bdi2_15
+    field: q15
+    prompt: "Loss of energy"
+  - id: bdi2_16
+    field: q16
+    prompt: "Changes in sleeping"
+  - id: bdi2_17
+    field: q17
+    prompt: "Irritability"
+  - id: bdi2_18
+    field: q18
+    prompt: "Changes in appetite"
+  - id: bdi2_19
+    field: q19
+    prompt: "Concentration difficulty"
+  - id: bdi2_20
+    field: q20
+    prompt: "Tiredness or fatigue"
+  - id: bdi2_21
+    field: q21
+    prompt: "Loss of interest in sex"
+scoring:
+  response_scale:
+    minimum: 0
+    maximum: 3
+    labels:
+      0: "Not at all"
+      1: "Mild"
+      2: "Moderate"
+      3: "Severe"
+  total:
+    label: "Total Score"
+    method: sum
+    items:
+      - bdi2_1
+      - bdi2_2
+      - bdi2_3
+      - bdi2_4
+      - bdi2_5
+      - bdi2_6
+      - bdi2_7
+      - bdi2_8
+      - bdi2_9
+      - bdi2_10
+      - bdi2_11
+      - bdi2_12
+      - bdi2_13
+      - bdi2_14
+      - bdi2_15
+      - bdi2_16
+      - bdi2_17
+      - bdi2_18
+      - bdi2_19
+      - bdi2_20
+      - bdi2_21
+    minimum: 0
+    maximum: 63
+  interpretation:
+    severity_thresholds:
+      - label: "Minimal"
+        min: 0
+        max: 13
+      - label: "Mild"
+        min: 14
+        max: 19
+      - label: "Moderate"
+        min: 20
+        max: 28
+      - label: "Severe"
+        min: 29
+        max: 63
