@@ -101,3 +101,20 @@ def plot(
 
     output = plot_panel(data, instrument_name=instrument, save_path=save)
     console.print(f"[green]Saved plot to {output}[/green]")
+
+
+@app.command()
+def gui(
+    host: str = typer.Option("127.0.0.1", help="Host interface to bind"),
+    port: int = typer.Option(8000, help="Port for the web UI"),
+) -> None:
+    """Launch the MPAL web dashboard."""
+
+    try:
+        import uvicorn
+    except ImportError as exc:
+        console.print("[red]Install the GUI dependencies first: pip install psylab[dev][/red]")
+        raise typer.Exit(code=1) from exc
+
+    console.print(f"[cyan]Launching MPAL GUI on http://{host}:{port}[/cyan]")
+    uvicorn.run("psylab.webapp:app", host=host, port=port, reload=False)

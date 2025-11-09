@@ -95,6 +95,23 @@ open demo.png  # or your platform equivalent
 
 Swap in your own CSV exports (ensure headers align with the YAML spec) to score real pilot data under supervised research protocols.
 
+## Web dashboard
+
+Prefer a point-and-click workflow? Launch the bundled FastAPI dashboard:
+
+```bash
+psylab gui --host 127.0.0.1 --port 8000
+```
+
+Then open the printed URL in your browser to:
+
+- Browse bundled instruments.
+- Upload a wide CSV and view scored output as a table + raw CSV text.
+- Upload scored CSVs to view summaries and severity counts.
+- Upload longitudinal CSVs to render Matplotlib progress plots directly in the page.
+
+The GUI is local-only by default; pass `--host 0.0.0.0` if you need other devices on your network to reach it.
+
 ## Development workflow
 
 ```bash
