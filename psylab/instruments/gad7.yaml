@@ -1,0 +1,66 @@
+instrument:
+  id: gad7
+  name: "GAD-7"
+  version: "2024-05"
+  description: "Generalized Anxiety Disorder screening tool."
+  citation: "Spitzer et al. (2006)."
+  domains:
+    - Anxiety
+items:
+  - id: gad7_1
+    field: q1
+    prompt: "Feeling nervous, anxious, or on edge"
+  - id: gad7_2
+    field: q2
+    prompt: "Not being able to stop or control worrying"
+  - id: gad7_3
+    field: q3
+    prompt: "Worrying too much about different things"
+  - id: gad7_4
+    field: q4
+    prompt: "Trouble relaxing"
+  - id: gad7_5
+    field: q5
+    prompt: "Being so restless that it is hard to sit still"
+  - id: gad7_6
+    field: q6
+    prompt: "Becoming easily annoyed or irritable"
+  - id: gad7_7
+    field: q7
+    prompt: "Feeling afraid as if something awful might happen"
+scoring:
+  response_scale:
+    minimum: 0
+    maximum: 3
+    labels:
+      0: "Not at all"
+      1: "Several days"
+      2: "More than half the days"
+      3: "Nearly every day"
+  total:
+    label: "Total Score"
+    method: sum
+    items:
+      - gad7_1
+      - gad7_2
+      - gad7_3
+      - gad7_4
+      - gad7_5
+      - gad7_6
+      - gad7_7
+    minimum: 0
+    maximum: 21
+  interpretation:
+    severity_thresholds:
+      - label: "Minimal"
+        min: 0
+        max: 4
+      - label: "Mild"
+        min: 5
+        max: 9
+      - label: "Moderate"
+        min: 10
+        max: 14
+      - label: "Severe"
+        min: 15
+        max: 21

@@ -1,0 +1,77 @@
+instrument:
+  id: phq9
+  name: "PHQ-9"
+  version: "2024-05"
+  description: "Patient Health Questionnaire for depressive symptom monitoring."
+  citation: "Kroenke, Spitzer, & Williams (2001)."
+  domains:
+    - Depression
+items:
+  - id: phq9_1
+    field: q1
+    prompt: "Little interest or pleasure in doing things"
+  - id: phq9_2
+    field: q2
+    prompt: "Feeling down, depressed, or hopeless"
+  - id: phq9_3
+    field: q3
+    prompt: "Trouble falling or staying asleep, or sleeping too much"
+  - id: phq9_4
+    field: q4
+    prompt: "Feeling tired or having little energy"
+  - id: phq9_5
+    field: q5
+    prompt: "Poor appetite or overeating"
+  - id: phq9_6
+    field: q6
+    prompt: "Feeling bad about yourself"
+  - id: phq9_7
+    field: q7
+    prompt: "Trouble concentrating"
+  - id: phq9_8
+    field: q8
+    prompt: "Moving or speaking slowly / being fidgety"
+  - id: phq9_9
+    field: q9
+    prompt: "Thoughts that you would be better off dead"
+scoring:
+  response_scale:
+    minimum: 0
+    maximum: 3
+    labels:
+      0: "Not at all"
+      1: "Several days"
+      2: "More than half the days"
+      3: "Nearly every day"
+  total:
+    label: "Total Score"
+    method: sum
+    items:
+      - phq9_1
+      - phq9_2
+      - phq9_3
+      - phq9_4
+      - phq9_5
+      - phq9_6
+      - phq9_7
+      - phq9_8
+      - phq9_9
+    minimum: 0
+    maximum: 27
+  interpretation:
+    severity_thresholds:
+      - label: "Minimal"
+        min: 0
+        max: 4
+      - label: "Mild"
+        min: 5
+        max: 9
+      - label: "Moderate"
+        min: 10
+        max: 14
+      - label: "Moderately Severe"
+        min: 15
+        max: 19
+      - label: "Severe"
+        min: 20
+        max: 27

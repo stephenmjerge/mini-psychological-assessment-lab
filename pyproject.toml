@@ -1,0 +1,30 @@
+[project]
+name = "psylab"
+version = "0.1.0"
+description = "Mini Psychological Assessment Lab"
+readme = "README.md"
+authors = [{name = "Stephen Jerge"}]
+requires-python = ">=3.9"
+dependencies = [
+    "typer>=0.12",
+    "pandas>=2.0",
+    "PyYAML>=6.0",
+    "rich>=13.6",
+    "matplotlib>=3.7"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+psylab = "psylab.cli:app"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+psylab = ["instruments/*.yaml"]
