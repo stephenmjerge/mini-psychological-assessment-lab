@@ -1,6 +1,7 @@
 import pandas as pd
+import pytest
 
-from psylab.scoring import score_responses, summarize_scores
+from psylab.scoring import ScoringError, score_responses, summarize_scores
 from psylab.specs import load_instrument_spec
 
 
@@ -33,3 +34,32 @@ def test_summary_stats_counts():
     assert summary["n_scored"] == 2
     assert summary["severity_counts"]["Mild"] == 1
     assert summary["severity_counts"]["Severe"] == 1
+
+
+def test_bdi2_scoring_and_severity():
+    spec = load_instrument_spec("bdi2")
+    low_row = {f"q{i}": 0 for i in range(1, 22)}
+    high_row = {f"q{i}": 3 for i in range(1, 22)}
+    df = pd.DataFrame([low_row, high_row])
+
+    scored = score_responses(spec, df)
+    assert scored["total_score"].tolist() == [0.0, 63.0]
+    assert scored["severity"].tolist() == ["Minimal", "Severe"]
+
+
+def test_pcl5_missing_columns_raise():
+    spec = load_instrument_spec("pcl5")
+    df = pd.DataFrame([{"q1": 1, "q2": 2}])  # missing q3..q20
+
+    with pytest.raises(ScoringError):
+        score_responses(spec, df)
+
+
+def test_pcl5_severity_thresholds():
+    spec = load_instrument_spec("pcl5")
+    moderate = {f"q{i}": 1 for i in range(1, 21)}  # total 20 -> Subthreshold
+    high = {f"q{i}": 4 for i in range(1, 21)}  # total 80 -> Probable PTSD
+    df = pd.DataFrame([moderate, high])
+
+    scored = score_responses(spec, df)
+    assert scored["severity"].tolist() == ["Subthreshold", "Probable PTSD"]

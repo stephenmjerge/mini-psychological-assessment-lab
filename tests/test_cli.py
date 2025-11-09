@@ -30,3 +30,5 @@ def test_instruments_listing():
     result = runner.invoke(app, ["instruments"])
     assert result.exit_code == 0
     assert "PHQ-9" in result.stdout
+    assert "PCL-5" in result.stdout
+    assert "BDI-II" in result.stdout
