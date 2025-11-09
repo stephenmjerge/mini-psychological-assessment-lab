@@ -2,7 +2,7 @@
 
 > **Ethics banner:** This toolkit is for transparent, educational measurement prototyping. Never deploy clinical decisions without licensed oversight, informed consent, and IRB-approved protocols.
 
-Mini Psychological Assessment Lab (PSYLAB) is a YAML-driven scoring engine plus Typer CLI that helps Clinical Science PhD applicants showcase measurement literacy, ethics, and reproducible tooling.
+Mini Psychological Assessment Lab (MPAL) is a YAML-driven scoring engine and Typer CLI for defining, scoring, and reviewing psychological assessment instruments.
 
 ## Features
 
