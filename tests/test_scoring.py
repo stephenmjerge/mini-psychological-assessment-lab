@@ -33,7 +33,7 @@ def test_summary_stats_counts():
     assert summary["n"] == 2
     assert summary["n_scored"] == 2
     assert summary["severity_counts"]["Mild"] == 1
-    assert summary["severity_counts"]["Severe"] == 1
+    assert summary["severity_counts"]["Moderate"] == 1
 
 
 def test_bdi2_scoring_and_severity():
