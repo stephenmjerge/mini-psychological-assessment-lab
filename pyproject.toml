@@ -18,7 +18,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=7.0"]
+dev = [
+    "pytest>=7.0",
+    "httpx>=0.27",
+]
 
 [project.scripts]
 psylab = "psylab.cli:app"
