@@ -56,6 +56,33 @@ scoring:     # response scale metadata, total score recipe, severity bands
 
 Adding a new instrument is as simple as dropping in another YAML file that follows this pattern—no Python changes required unless you need custom scoring logic.
 
+### Instrument families and roadmap targets
+
+MPAL currently ships depression (PHQ-9, BDI-II), anxiety (GAD-7), and PTSD/trauma (PCL-5) measures. The broader clinical landscape PsyD students work with can be grouped as follows:
+
+| Family | Example instruments |
+| --- | --- |
+| Depression | PHQ-9, BDI-II, CES-D, HAM-D, MADRS |
+| Anxiety | GAD-7, BAI, HAM-A, SCARED |
+| PTSD / Trauma | PCL-5, ACE, CAPS-5, IES-R, TSQ |
+| Substance use | AUDIT, DAST-10, CAGE/CAGE-AID, ASSIST |
+| Suicidality & risk | C-SSRS, SAFE-T, SBQ-R |
+| ADHD | ASRS, Conners, WURS |
+| Personality | MMPI-3, PAI, MCMI-IV, Rorschach, TAT |
+| Cognitive / neuropsych | WAIS-IV, WISC-V, RBANS, MoCA, MMSE |
+| Mood / bipolar | MDQ, YMRS, CARS-M |
+| Eating disorders | EDE-Q, EAT-26, SCOFF |
+| OCD | Y-BOCS, OCI-R |
+| Autism spectrum | ADOS-2, ADI-R, SRS-2 |
+| Relationship / attachment | ECR-R, AAI, Dyadic Adjustment Scale |
+| Somatic symptoms | PHQ-15, SOMS |
+| General distress | K10/K6, OQ-45, CORE-10/CORE-OM |
+| Functioning / disability | WHODAS 2.0, GAF, SDS |
+| Child & adolescent behavior | CBCL, BASC-3, Vanderbilt ADHD rating |
+| Specialized clinical | PQ-B, HCL-32, PSQI, DERS |
+
+This taxonomy doubles as the long-term feature backlog: every time a YAML spec is added for a new family, MPAL becomes a more complete lab for organizing, scoring, interpreting, and tracking change across the full battery PsyD programs expect.
+
 ## Example session
 
 ```bash
@@ -81,6 +108,7 @@ Tests cover scoring logic, severity thresholds, CLI commands, and YAML validatio
 
 1. Replace `docs/psylab-demo.gif` with a real CLI walkthrough recording.
 2. Add domain subscores or flag columns to the YAML specs (especially PCL-5) to mirror clinical interpretations.
-3. Introduce severity band overlays to `psylab plot` for quicker visual reads.
-4. Build an HTML/PDF report generator (WeasyPrint/Jinja) that consumes scored CSV output.
-5. Add an end-to-end test that invokes the CLI commands to catch packaging regressions.
+3. Expand YAML coverage using the family taxonomy above (e.g., add CES-D, GAD-7 child variants, ACE, AUDIT, C-SSRS) so each major diagnostic cluster has at least one exemplar.
+4. Introduce severity band overlays and reference lines to `psylab plot` for quicker visual reads.
+5. Build an HTML/PDF report generator (WeasyPrint/Jinja) that consumes scored CSV output.
+6. Add an end-to-end test that invokes the CLI commands to catch packaging regressions.
