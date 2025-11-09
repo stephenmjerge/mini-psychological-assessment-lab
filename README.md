@@ -58,7 +58,7 @@ Adding a new instrument is as simple as dropping in another YAML file that follo
 
 ### Instrument families and roadmap targets
 
-MPAL currently ships depression (PHQ-9, BDI-II), anxiety (GAD-7), and PTSD/trauma (PCL-5) measures. The broader clinical landscape PsyD students work with can be grouped as follows:
+MPAL currently ships depression (PHQ-9, BDI-II), anxiety (GAD-7), and PTSD/trauma (PCL-5) measures. The broader clinical landscape that clinical psychology trainees work with can be grouped as follows:
 
 | Family | Example instruments |
 | --- | --- |
@@ -81,7 +81,7 @@ MPAL currently ships depression (PHQ-9, BDI-II), anxiety (GAD-7), and PTSD/traum
 | Child & adolescent behavior | CBCL, BASC-3, Vanderbilt ADHD rating |
 | Specialized clinical | PQ-B, HCL-32, PSQI, DERS |
 
-This taxonomy doubles as the long-term feature backlog: every time a YAML spec is added for a new family, MPAL becomes a more complete lab for organizing, scoring, interpreting, and tracking change across the full battery PsyD programs expect.
+This taxonomy doubles as the long-term feature backlog: every time a YAML spec is added for a new family, MPAL becomes a more complete lab for organizing, scoring, interpreting, and tracking change across the full battery clinical training programs expect.
 
 ## Example session
 
