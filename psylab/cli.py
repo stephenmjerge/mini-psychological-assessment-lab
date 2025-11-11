@@ -17,12 +17,20 @@ console = Console()
 
 
 @app.command()
-def instruments() -> None:
+def instruments(
+    json_output: bool = typer.Option(False, "--json", help="Emit instrument metadata as JSON"),
+) -> None:
     """List bundled instruments."""
     rows = list_instruments()
     if not rows:
         console.print("[yellow]No instruments are bundled yet.[/yellow]")
         raise typer.Exit(code=1)
+
+    if json_output:
+        import json
+
+        typer.echo(json.dumps(rows, indent=2))
+        return
 
     table = Table("ID", "Name", "Version", "Description")
     for row in rows:

@@ -29,7 +29,7 @@ MPAL targets Python 3.9+ and uses pandas, Typer, Rich, Matplotlib, and PyYAML.
 
 | Command | Purpose | Example |
 | --- | --- | --- |
-| `psylab instruments` | List bundled instruments and metadata | `psylab instruments` |
+| `psylab instruments [--json]` | List bundled instruments (optionally JSON for scripting) | `psylab instruments --json` |
 | `psylab score-csv <instrument> <responses.csv> [-o out.csv]` | Score a wide CSV | `psylab score-csv phq9 examples/sample_phq9.csv -o phq9_scores.csv` |
 | `psylab summary <instrument> <scored.csv>` | Summaries & severity counts | `psylab summary "PHQ-9" phq9_scores.csv` |
 | `psylab plot "<Instrument Name>" <panel.csv> --save plot.png` | Plot longitudinal scores | `psylab plot "PHQ-9" examples/sample_panel_long.csv --save phq9_progress.png` |

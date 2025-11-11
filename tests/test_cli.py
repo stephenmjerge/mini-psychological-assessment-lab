@@ -32,3 +32,12 @@ def test_instruments_listing():
     assert "PHQ-9" in result.stdout
     assert "PCL-5" in result.stdout
     assert "BDI-II" in result.stdout
+
+
+def test_instruments_json():
+    result = runner.invoke(app, ["instruments", "--json"])
+    assert result.exit_code == 0
+    payload = result.stdout.strip()
+    assert payload.startswith("[")
+    assert '"id": "phq9"' in payload
+    assert '"name": "PHQ-9"' in payload
