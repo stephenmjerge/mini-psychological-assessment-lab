@@ -15,7 +15,7 @@ Mini Psychological Assessment Lab (MPAL) is a YAML-driven scoring engine and Typ
 ![MPAL CLI demo placeholder](docs/psylab-demo.gif)  
 _Replace this placeholder GIF with a 60-second capture of your actual CLI session for reviewers._
 
-## Installation
+## Setup
 
 ```bash
 python3 -m venv .venv
@@ -24,6 +24,10 @@ pip install -e .[dev]
 ```
 
 MPAL targets Python 3.9+ and uses pandas, Typer, Rich, Matplotlib, and PyYAML.
+
+### Environment variables
+
+No required variables. Optionally set `MPLCONFIGDIR` / `XDG_CACHE_HOME` if you run `psylab plot` or `psylab gui` on locked-down machines so Matplotlib caches live inside the repo directory.
 
 ## CLI cheatsheet
 
