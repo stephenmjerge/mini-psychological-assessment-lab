@@ -120,10 +120,10 @@ The GUI is local-only by default; pass `--host 0.0.0.0` if you need other device
 
 ```bash
 pip install -e .[dev]
-pytest -q
+./scripts/run-tests.sh -q
 ```
 
-Tests cover scoring logic, severity thresholds, CLI commands, and YAML validation. CI (`.github/workflows/ci.yml`) runs pytest on Python 3.9 and 3.11 for pushes and PRs.
+The helper script keeps pytest’s cache enabled when possible and falls back to `-p no:cacheprovider` automatically if the filesystem blocks `.pytest_cache/`. Tests cover scoring logic, severity thresholds, CLI commands, and YAML validation. CI (`.github/workflows/ci.yml`) runs pytest on Python 3.9 and 3.11 for pushes and PRs.
 
 ## Roadmap
 

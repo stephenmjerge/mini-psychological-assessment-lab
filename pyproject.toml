@@ -35,6 +35,3 @@ include-package-data = true
 
 [tool.setuptools.package-data]
 psylab = ["instruments/*.yaml", "templates/*.html"]
-
-[tool.pytest.ini_options]
-addopts = "-p no:cacheprovider"
