@@ -33,7 +33,7 @@ def _read_csv(upload: UploadFile) -> pd.DataFrame:
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("index.html", _base_context(request))
+    return templates.TemplateResponse(request, "index.html", _base_context(request))
 
 
 @app.post("/score", response_class=HTMLResponse)
@@ -54,7 +54,7 @@ async def score(
         context["success_message"] = f"Scored {len(scored)} rows for {spec['instrument']['name']}."
     except (ValueError, ScoringError, UnicodeDecodeError) as exc:
         context["error_message"] = f"Scoring failed: {exc}"
-    return templates.TemplateResponse("index.html", context)
+    return templates.TemplateResponse(request, "index.html", context)
 
 
 @app.post("/summary", response_class=HTMLResponse)
@@ -73,7 +73,7 @@ async def summary(
         context["success_message"] = f"Loaded summary for {spec['instrument']['name']}."
     except (ValueError, ScoringError, UnicodeDecodeError) as exc:
         context["error_message"] = f"Summary failed: {exc}"
-    return templates.TemplateResponse("index.html", context)
+    return templates.TemplateResponse(request, "index.html", context)
 
 
 @app.post("/plot", response_class=HTMLResponse)
@@ -95,4 +95,4 @@ async def plot(
         context["success_message"] = f"Generated plot for {instrument_name}."
     except (ValueError, UnicodeDecodeError) as exc:
         context["error_message"] = f"Plotting failed: {exc}"
-    return templates.TemplateResponse("index.html", context)
+    return templates.TemplateResponse(request, "index.html", context)
