@@ -123,7 +123,7 @@ pip install -e .[dev]
 ./scripts/run-tests.sh -q
 ```
 
-The helper script keeps pytest’s cache enabled when possible and falls back to `-p no:cacheprovider` automatically if the filesystem blocks `.pytest_cache/`. Tests cover scoring logic, severity thresholds, CLI commands, and YAML validation. CI (`.github/workflows/ci.yml`) runs pytest on Python 3.9 and 3.11 for pushes and PRs.
+The helper script keeps pytest’s cache enabled when possible and falls back to `-p no:cacheprovider` automatically if the filesystem blocks `.pytest_cache/`. Tests cover scoring logic, severity thresholds (including PHQ-9 + fresh GAD-7 cases), CLI commands, and YAML validation. CI (`.github/workflows/ci.yml`) runs pytest on Python 3.9 and 3.11 for pushes and PRs.
 
 ## Roadmap
 

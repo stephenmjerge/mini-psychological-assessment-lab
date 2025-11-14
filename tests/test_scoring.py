@@ -1,3 +1,5 @@
+import math
+
 import pandas as pd
 import pytest
 
@@ -63,3 +65,35 @@ def test_pcl5_severity_thresholds():
 
     scored = score_responses(spec, df)
     assert scored["severity"].tolist() == ["Subthreshold", "Probable PTSD"]
+
+
+def test_gad7_scoring_respects_severity_thresholds():
+    spec = load_instrument_spec("gad7")
+    minimal = {"participant_id": "1001", "q1": 1, "q2": 0, "q3": 1, "q4": 0, "q5": 1, "q6": 0, "q7": 1}
+    moderate = {"participant_id": "1002", "q1": 2, "q2": 2, "q3": 2, "q4": 2, "q5": 2, "q6": 1, "q7": 1}
+    df = pd.DataFrame([minimal, moderate])
+
+    scored = score_responses(spec, df)
+    assert scored["total_score"].tolist() == [4.0, 12.0]
+    assert scored["severity"].tolist() == ["Minimal", "Moderate"]
+
+
+def test_gad7_missing_responses_yield_nan_total():
+    spec = load_instrument_spec("gad7")
+    df = pd.DataFrame([
+        {"participant_id": "1003", "q1": 1, "q2": 1, "q3": None, "q4": 1, "q5": 0, "q6": 0, "q7": 0}
+    ])
+
+    scored = score_responses(spec, df)
+    assert math.isnan(scored.loc[0, "total_score"])
+    assert scored.loc[0, "severity"] is None
+
+
+def test_gad7_non_numeric_entry_raises():
+    spec = load_instrument_spec("gad7")
+    df = pd.DataFrame([
+        {"participant_id": "1004", "q1": 1, "q2": 1, "q3": "bad", "q4": 1, "q5": 1, "q6": 1, "q7": 1}
+    ])
+
+    with pytest.raises(ScoringError):
+        score_responses(spec, df)
