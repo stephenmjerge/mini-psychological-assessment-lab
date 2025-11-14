@@ -37,6 +37,7 @@ No required variables. Optionally set `MPLCONFIGDIR` / `XDG_CACHE_HOME` if you r
 | `psylab score-csv <instrument> <responses.csv> [-o out.csv]` | Score a wide CSV | `psylab score-csv phq9 examples/sample_phq9.csv -o phq9_scores.csv` |
 | `psylab summary <instrument> <scored.csv>` | Summaries & severity counts | `psylab summary "PHQ-9" phq9_scores.csv` |
 | `psylab plot "<Instrument Name>" <panel.csv> --save plot.png` | Plot longitudinal scores | `psylab plot "PHQ-9" examples/sample_panel_long.csv --save phq9_progress.png` |
+| `python examples/gad7_trend_demo.py` | Generate severity-band plot for sample GAD-7 data | `python examples/gad7_trend_demo.py` |
 
 Run `psylab --help` or append `--help` to any subcommand for option details.
 
@@ -45,6 +46,7 @@ Run `psylab --help` or append `--help` to any subcommand for option details.
 - **score-csv** expects a wide CSV where column names match the YAML `field` entries (`q1`, `q2`, …) plus an optional `participant_id`.
 - **summary** expects the CSV produced by `score-csv`.
 - **plot** expects tidy/long data with `participant_id`, `instrument`, `date`, and `score` columns (see `examples/sample_panel_long.csv`).
+  - `examples/gad7_trend_demo.py` + `docs/assets/gad7_trend_demo.png` show how to highlight severity bands for GAD-7 using the bundled sample data.
 
 Sample files live in `examples/` so you can validate the workflow end-to-end.
 

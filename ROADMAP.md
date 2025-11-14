@@ -5,6 +5,7 @@ Score mental‑health instruments, generate severity levels, support symptom tra
 
 ## Phase 1
 - Add PHQ‑9, GAD‑7, PCL‑5, BDI‑II scorers (GAD‑7 unit tests landed Nov 14, 2025).
+- Add plot utilities + stability checks (GAD-7 trend demo added Nov 14, 2025).
 - Create validation notebooks.
 - Tag v0.5 release.
 
