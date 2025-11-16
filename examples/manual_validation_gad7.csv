@@ -1,0 +1,6 @@
+participant_id,q1,q2,q3,q4,q5,q6,q7,manual_total,manual_severity
+2001,0,1,1,1,0,1,1,5,Mild
+2002,3,3,2,3,2,3,2,18,Severe
+2003,2,2,1,2,1,2,1,11,Moderate
+2004,0,0,0,0,0,0,0,0,Minimal
+2005,1,1,1,1,1,1,1,7,Mild
