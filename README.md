@@ -53,7 +53,7 @@ Sample files live in `examples/` so you can validate the workflow end-to-end.
 ## Validation artifacts
 
 - `examples/manual_validation_phq9.csv` and `examples/manual_validation_gad7.csv` pair manual totals/severity labels with the bundled item-level responses.
-- `docs/validation/mpal_manual_validation.ipynb` runs those CSVs through `psylab.score_responses`, asserts parity vs. the manual references, and produces manual vs MPAL severity plots you can hand to admissions reviewers.
+- `docs/validation/mpal_manual_validation.ipynb` runs those CSVs through `psylab.score_responses`, asserts parity vs. the manual references, and produces manual vs MPAL severity plots you can hand to admissions reviewers. Public export on OSF: https://osf.io/82wpk/overview
 - Swap in additional pilot data (when permitted) to extend the validation evidence without changing the notebook scaffolding.
 
 
