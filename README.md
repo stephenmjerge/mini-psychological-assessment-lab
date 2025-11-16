@@ -1,4 +1,4 @@
-# 🧪 Mini Psychological Assessment Lab
+# MPAL — Mini Psychological Assessment Lab
 
 > **Ethics banner (research use only):** MPAL is a measurement prototyping sandbox. Do not use it for diagnosis or treatment decisions unless the workflow is validated, cleared by your IRB, and operated under licensed clinical supervision with informed consent and HIPAA-compliant safeguards.
 
