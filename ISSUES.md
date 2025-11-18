@@ -6,4 +6,4 @@ Use GitHub issues for bugs and feature requests. When filing a ticket, include:
 - CLI or webapp route that reproduces the behavior.
 - Expected scoring output compared to actual results.
 
-Critical triage items should also be copied into `LAUNCHPAD/project-priorities.md` so they show up during status reviews.
+Critical triage items should also be copied into `meta/launchpad/project-priorities.md` so they show up during status reviews.

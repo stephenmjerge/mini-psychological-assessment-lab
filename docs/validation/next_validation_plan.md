@@ -26,4 +26,4 @@ Purpose: deliver the second validation artifact for the Phase 1 milestone by com
 
 5) Definition of Done
 - Passing parity checks (manual_total == MPAL total; severity labels match) for all sample rows.
-- Notebook + HTML exported and linked in README/PortfolioHub/LAUNCHPAD.
+- Notebook + HTML exported and linked in README/PortfolioHub/`meta/launchpad`.
