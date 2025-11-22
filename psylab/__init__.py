@@ -9,3 +9,5 @@ __all__ = [
     "score_responses",
     "summarize_scores",
 ]
+
+__version__ = "0.1.1"

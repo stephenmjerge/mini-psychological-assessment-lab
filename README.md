@@ -4,6 +4,13 @@
 
 Mini Psychological Assessment Lab (MPAL) is a YAML-driven scoring engine and Typer CLI for defining, scoring, and reviewing psychological assessment instruments. It is currently maintained by a single researcher and published publicly for transparency.
 
+### TL;DR
+- `psylab demo` — one-command demo with bundled PHQ-9 sample data (scores, summary JSON, HTML report)
+- `psylab score-csv phq9 examples/sample_phq9.csv --out scores.csv --html-report`
+- `psylab doctor` — environment check (Python, deps, optional input path)
+- Add `--dry-run` to validate inputs without writing outputs
+- Requirements: Python 3.9+; pandas, Typer, Rich, Matplotlib, PyYAML
+
 ## Capabilities
 
 - Load PHQ-9, GAD-7, PCL-5, and BDI-II specs straight from YAML (field names, scoring ranges, severity cutoffs).
@@ -29,14 +36,21 @@ MPAL targets Python 3.9+ and uses pandas, Typer, Rich, Matplotlib, and PyYAML.
 
 No required variables. Optionally set `MPLCONFIGDIR` / `XDG_CACHE_HOME` if you run `psylab plot` or `psylab gui` on locked-down machines so Matplotlib caches live inside the repo directory.
 
+## Documentation
+- `docs/clinician_quickstart.md` — one-page setup + troubleshooting for clinicians.
+- `docs/validation/mpal_manual_validation.ipynb` — manual vs MPAL parity notebook.
+
 ## CLI cheatsheet
 
 | Command | Purpose | Example |
 | --- | --- | --- |
 | `psylab instruments [--json]` | List bundled instruments (optionally JSON for scripting) | `psylab instruments --json` |
-| `psylab score-csv <instrument> <responses.csv> [-o out.csv]` | Score a wide CSV | `psylab score-csv phq9 examples/sample_phq9.csv -o phq9_scores.csv` |
+| `psylab score-csv <instrument> <responses.csv> [-o out.csv]` | Score a wide CSV | `psylab score-csv phq9 examples/sample_phq9.csv -o phq9_scores.csv --html-report` |
 | `psylab summary <instrument> <scored.csv>` | Summaries & severity counts | `psylab summary "PHQ-9" phq9_scores.csv` |
 | `psylab plot "<Instrument Name>" <panel.csv> --save plot.png` | Plot longitudinal scores | `psylab plot "PHQ-9" examples/sample_panel_long.csv --save phq9_progress.png` |
+| `psylab demo` | Run demo with bundled PHQ-9 sample data | `psylab demo --outdir outputs/demo_run` |
+| `psylab doctor` | Environment check (Python, deps, optional input) | `psylab doctor --input examples/sample_phq9.csv` |
+| `--dry-run` | Validate inputs without writing outputs | `psylab score-csv phq9 examples/sample_phq9.csv --dry-run` |
 | `python examples/gad7_trend_demo.py` | Generate severity-band plot for sample GAD-7 data | `python examples/gad7_trend_demo.py` |
 
 Run `psylab --help` or append `--help` to any subcommand for option details.

@@ -1,6 +1,6 @@
 [project]
 name = "psylab"
-version = "0.1.0"
+version = "0.1.1"
 description = "Mini Psychological Assessment Lab"
 readme = "README.md"
 authors = [{name = "Stephen Jerge"}]
